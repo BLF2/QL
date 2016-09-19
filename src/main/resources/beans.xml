@@ -55,9 +55,9 @@
                      <tx:method name="update*" propagation="REQUIRED" />
                      <tx:method name="check*" propagation="REQUIRED" />
                      <tx:method name="register*" propagation="REQUIRED" />
+                     <tx:method name="insert*" propagation="REQUIRED" />
 
-
-                     <tx:method name="look*" propagation="REQUIRED" read-only="true" />
+                     <tx:method name="query*" propagation="REQUIRED" read-only="true" />
               </tx:attributes>
        </tx:advice>
        <aop:config>

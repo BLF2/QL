@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Required;
 import org.springframework.stereotype.Controller;
+import org.springframework.util.SocketUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -421,9 +422,9 @@ public class RepairFormOp {
         repairComment.setSubmiterId(userInfo.getUserId());
         repairComment.setCommentDateTime(new Date());
         repairComment.setRepairId(repairId);
-        System.out.println("In controoler commentText="+repairComment.getCommentText());
         repairComment = commentService.insertRepairComment(repairComment);
         if(repairComment != null){
+            System.out.println(">>>>>>>>>>>>>>>>>>>>>>id"+repairComment.getRepairCommentId());
             return this.toLoginMainPage(httpSession);
         }
         return "error";

@@ -24,22 +24,6 @@ public class RepairComment {
     @Column(name = "submiterId")
     private String submiterId;//评论人ID
 
-    public String getSubmiterId() {
-        return submiterId;
-    }
-
-    public void setSubmiterId(String submiterId) {
-        this.submiterId = submiterId;
-    }
-
-    public Date getCommentDateTime() {
-        return commentDateTime;
-    }
-
-    public void setCommentDateTime(Date commentDateTime) {
-        this.commentDateTime = commentDateTime;
-    }
-
     public String getRepairCommentId() {
         return repairCommentId;
     }
@@ -62,5 +46,21 @@ public class RepairComment {
 
     public void setCommentText(String commentText) {
         this.commentText = commentText;
+    }
+
+    public Date getCommentDateTime() {
+        return commentDateTime;
+    }
+
+    public void setCommentDateTime(Date commentDateTime) {
+        this.commentDateTime = commentDateTime;
+    }
+
+    public String getSubmiterId() {
+        return submiterId;
+    }
+
+    public void setSubmiterId(String submiterId) {
+        this.submiterId = submiterId;
     }
 }

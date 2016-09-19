@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.List;
 
 /**
@@ -18,47 +19,41 @@ public class CommentServiceImpl implements IRepairCommentService {
 
     @Autowired
     @Qualifier("RepairCommentDaoImpl")
-    private IRepairCommentDao iRepairCommentDAO;
+    private IRepairCommentDao iRepairCommentDao;
 
-    public IRepairCommentDao getiRepairCommentDAO() {
-        return iRepairCommentDAO;
-    }
 
-    public void setiRepairCommentDAO(IRepairCommentDao iRepairCommentDAO) {
-        this.iRepairCommentDAO = iRepairCommentDAO;
-    }
 
 
     @Override
     public RepairComment insertRepairComment(RepairComment repairComment) {
      //   repairComment.setCommentText(StringEscapeUtils.escapeEcmaScript(repairComment.getCommentText()));
      //   System.out.println("In service commentText = "+repairComment.getCommentText());
-        return iRepairCommentDAO.insertData(repairComment);
+        return iRepairCommentDao.insertData(repairComment);
     }
 
     @Override
     public RepairComment queryRepairCommentById(String repairCommentId) {
-        return iRepairCommentDAO.queryRepairCommentById(repairCommentId);
+        return iRepairCommentDao.queryRepairCommentById(repairCommentId);
     }
 
     @Override
     public List<RepairComment> queryRepairCommentByRepairId(String repairId) {
-        return iRepairCommentDAO.queryCommentByRepairId(repairId);
+        return iRepairCommentDao.queryCommentByRepairId(repairId);
     }
 
     @Override
     public List<RepairComment> queryRepairCommentAll() {
-        return iRepairCommentDAO.queryDataAll();
+        return iRepairCommentDao.queryDataAll();
     }
 
     @Override
     public Boolean updateRepairComment(RepairComment repairComment) {
      //   repairComment.setCommentText(StringEscapeUtils.escapeEcmaScript(repairComment.getCommentText()));
-        return iRepairCommentDAO.updateData(repairComment);
+        return iRepairCommentDao.updateData(repairComment);
     }
 
     @Override
     public Boolean deleteRepairComment(RepairComment repairComment) {
-        return iRepairCommentDAO.deleteData(repairComment);
+        return iRepairCommentDao.deleteData(repairComment);
     }
 }
